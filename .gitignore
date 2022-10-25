@@ -1,0 +1,23 @@
+# Craft
+/.env
+
+# Composer
+/vendor
+
+# Ide
+/.idea
+/.vscode
+
+# Archive
+*.sql
+*.gz
+*.zip
+
+# Mac
+.DS_Store
+.DS_Store?
+._*
+
+# Windows
+[Dd]esktop.ini
+Thumbs.db

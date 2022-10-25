@@ -1,0 +1,266 @@
+dateModified: 1666710130
+elementSources:
+  craft\elements\Entry:
+    -
+      disabled: false
+      key: singles
+      tableAttributes:
+        - uri
+      type: native
+  craft\elements\User:
+    -
+      disabled: false
+      key: '*'
+      tableAttributes:
+        - fullName
+        - email
+        - dateCreated
+        - lastLoginDate
+      type: native
+    -
+      key: admins
+      type: native
+    -
+      heading: 'Account Type'
+      type: heading
+    -
+      key: credentialed
+      type: native
+    -
+      key: inactive
+      type: native
+    -
+      heading: Groupes
+      type: heading
+    -
+      key: 'group:3d7be5fe-cbca-4be6-a9b9-ff8e0b07b04f' # Gestionnaires
+      type: native
+email:
+  fromEmail: craft+dev@lg2.com
+  fromName: Craft
+  replyToEmail: null
+  template: _emails/craft.twig
+  transportSettings:
+    encryptionMethod: none
+    host: $MAILHOG_SMTP_HOSTNAME
+    password: ''
+    port: $MAILHOG_SMTP_PORT
+    timeout: '10'
+    useAuthentication: '0'
+    username: ''
+  transportType: craft\mail\transportadapters\Smtp
+fs:
+  localFiles:
+    hasUrls: true
+    name: 'Fichiers - Local'
+    settings:
+      path: '@webroot/files'
+    type: craft\fs\Local
+    url: '@web/files'
+  servdFiles:
+    hasUrls: true
+    name: 'Fichiers - ServD'
+    settings:
+      cdnUrlPattern: ''
+      customSubfolder: files/
+      makeUploadsPublic: true
+      optimisePrefix: ''
+      optimiseUrlPattern: ''
+      projectSlug: ''
+      securityKey: ''
+    type: servd\AssetStorage\AssetsPlatform\Fs
+    url: null
+meta:
+  __names__:
+    3d7be5fe-cbca-4be6-a9b9-ff8e0b07b04f: Gestionnaires # Gestionnaires
+    06becd04-6baf-4b43-8769-ec641bce728b: Default # Default
+    30bee67e-b6eb-4133-a121-e58a5ffa1cd3: Fichiers # Fichiers
+    95bf71c2-75d4-4454-babd-75b9e274b8cf: Common # Common
+    290df891-77ae-4ec7-94f7-e9ee2940c49a: 'Contact Form' # Contact Form
+    a22afe36-09a0-48c6-8ad1-4d6e28865cee: Français # Français
+    aec884a2-ccc0-469c-abf8-3feb3a94babb: New # New
+    bedcac84-ccd3-4475-8a12-66179d425eaf: English # English
+    db55cbcc-e301-42e4-bc05-987655a035ff: 'Page - Home' # Page - Home
+    f63e7fb8-70b7-4556-9099-751c2bd98bb7: 'Public Schema' # Public Schema
+    fcca34b3-6af3-4736-9f77-79eb1cdc405a: 'Page - Home' # Page - Home
+plugins:
+  amazon-ses:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  aws-s3:
+    edition: standard
+    enabled: true
+    schemaVersion: '2.0'
+  cp-field-inspect:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  embeddedassets:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  formie:
+    edition: standard
+    enabled: true
+    licenseKey: SOV9G7H3CW2Y54O9EVP5APIB
+    schemaVersion: 2.0.8
+    settings:
+      ajaxTimeout: 10
+      alertEmails: null
+      defaultDateDisplayType: calendar
+      defaultDateTime: null
+      defaultDateValueOption: ''
+      defaultEmailTemplate: ''
+      defaultFileUploadVolume: ''
+      defaultFormTemplate: ''
+      defaultInstructionsPosition: verbb\formie\positions\AboveInput
+      defaultLabelPosition: verbb\formie\positions\AboveInput
+      defaultPage: forms
+      emptyValuePlaceholder: 'No response.'
+      enableBackSubmission: true
+      enableCsrfValidationForGuests: true
+      enableUnloadWarning: true
+      maxIncompleteSubmissionAge: 30
+      maxSentNotificationsAge: 30
+      pdfPaperOrientation: portrait
+      pdfPaperSize: letter
+      pluginName: Formulaires
+      queuePriority: null
+      saveSpam: true
+      sendEmailAlerts: false
+      sentNotifications: true
+      spamBehaviour: showSuccess
+      spamBehaviourMessage: ''
+      spamEmailNotifications: false
+      spamKeywords: ''
+      spamLimit: 500
+      useQueueForIntegrations: true
+      useQueueForNotifications: true
+  image-resizer:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  navigation:
+    edition: standard
+    enabled: true
+    licenseKey: ZWZESXTRZBBKW6559XJZGY7F
+    schemaVersion: 2.0.4
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  retour:
+    edition: standard
+    enabled: true
+    licenseKey: TKO3VCRXSO2JT993MF0YEYN8
+    schemaVersion: 3.0.10
+    settings:
+      alwaysStripQueryString: false
+      automaticallyTrimStatistics: true
+      createUriChangeRedirects: false
+      csvColumnDelimiter: ','
+      dynamicRedirectDisplayLimit: 100
+      enableApiEndpoint: false
+      pluginName: Redirections
+      preserveQueryString: false
+      recordRemoteIp: true
+      refreshIntervalSecs: 5
+      staticRedirectDisplayLimit: 100
+      statisticsRateLimitMs: 3600000
+      statsDisplayLimit: 1000
+      statsStoredLimit: 1000
+      stripQueryStringFromStats: true
+      uriChangeRedirectSrcMatch: pathonly
+  sentry-logger:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  seomatic:
+    edition: standard
+    enabled: true
+    licenseKey: ZJGL5KKCD2HPOFA91FVWRNTT
+    schemaVersion: 3.0.11
+    settings:
+      addHrefLang: true
+      addPaginatedHreflang: true
+      addXDefaultHrefLang: true
+      alwaysIncludeCanonicalUrls: false
+      cpTitlePrefix: ''
+      cspNonce: ''
+      cspScriptSrcPolicies:
+        -
+          __assoc__:
+            -
+              - policy
+              - '''self'''
+      devModeCpTitlePrefix: ''
+      devModeTitlePrefix: ''
+      displayAnalysisSidebar: true
+      displayPreviewSidebar: false
+      enableJsonLdEndpoint: false
+      enableMetaContainerEndpoint: false
+      enableSeoFileLinkEndpoint: false
+      environment: live
+      excludeNonCanonicalUrls: false
+      generatorEnabled: true
+      headersEnabled: true
+      includeHomepageInBreadcrumbs: true
+      lowercaseCanonicalUrl: true
+      manuallySetEnvironment: false
+      maxDescriptionLength: 155
+      maxTitleLength: 70
+      metaCacheDuration: 0
+      pluginName: Référencement
+      regenerateSitemapsAutomatically: false
+      renderEnabled: true
+      separatorChar: '-'
+      sidebarDisplayPreviewTypes:
+        - google
+        - twitter
+        - facebook
+      siteGroupsSeparate: true
+      siteUrlOverride: ''
+      sitemapsEnabled: false
+      socialMediaPreviewTarget: false
+      submitSitemaps: false
+      truncateDescriptionTags: true
+      truncateTitleTags: true
+  servd-asset-storage:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0
+    settings:
+      adjustFeedmeLogs: ''
+      assetsEnvironment: ''
+      assetsEnvironmentOverwrite: ''
+      cacheClearMode: full
+      clearCachesOnSave: always
+      disableDynamic: ''
+      disableTransforms: ''
+      fsMaps:
+        __assoc__:
+          -
+            - servdFiles
+            - localFiles
+      fsMapsEnabled: '1'
+      injectCors: ''
+      projectSlug: ''
+      securityKey: ''
+      suppressWarnings: ''
+      useLocalVolumes: false
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0
+  typedlinkfield:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+system:
+  edition: pro
+  live: true
+  name: Craft
+  retryDuration: null
+  schemaVersion: 4.0.0.9
+  timeZone: America/Toronto
