@@ -20,7 +20,7 @@
   },
   "require": {
     "craftcms/aws-s3": "^2.0.1",
-    "craftcms/cms": "^4.2.8",
+    "craftcms/cms": "^4.3.0",
     "craftcms/redactor": "^3.0.2",
     "diginov/craft-sentry-logger": "^4.1.1",
     "mmikkel/cp-field-inspect": "^1.4.4",
