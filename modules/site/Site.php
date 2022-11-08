@@ -11,7 +11,6 @@ use craft\elements\Category;
 use craft\elements\Entry;
 use craft\elements\User;
 use craft\events\DefineBehaviorsEvent;
-use craft\events\RegisterElementSourcesEvent;
 use craft\events\RegisterTemplateRootsEvent;
 use craft\events\RegisterUrlRulesEvent;
 use craft\events\TemplateEvent;
@@ -96,9 +95,7 @@ class Site extends \yii\base\Module
      */
     private function _registerElementBehaviors(): void
     {
-        // User
-        // -------------------------------------------------------------------------
-
+        // Attach user behaviors
         Craft::$app->getUser()->attachBehaviors([
             UserBehavior::class,
         ]);
@@ -115,20 +112,11 @@ class Site extends \yii\base\Module
      */
     private function _registerElementEvents(): void
     {
-        // Category
-        // -------------------------------------------------------------------------
-
         // Before saving a category
         Event::on(Category::class, Category::EVENT_BEFORE_SAVE, [$this->getCategory(), 'beforeSaveHandler']);
 
-        // Entry
-        // -------------------------------------------------------------------------
-
         // Before saving an entry
         Event::on(Entry::class, Entry::EVENT_BEFORE_SAVE, [$this->getEntry(), 'beforeSaveHandler']);
-
-        // User
-        // -------------------------------------------------------------------------
 
         // Before saving a user
         Event::on(User::class, User::EVENT_BEFORE_SAVE, [$this->getUser(), 'beforeSaveHandler']);
@@ -139,44 +127,8 @@ class Site extends \yii\base\Module
      */
     private function _registerElementSources(): void
     {
-        // Entry
-        // -------------------------------------------------------------------------
-
-        Event::on(Entry::class, Entry::EVENT_REGISTER_SOURCES, function (RegisterElementSourcesEvent $event) {
-            foreach ($event->sources as $key => $source) {
-                $sourceKey = $source['key'] ?? null;
-
-                // Remove `All entries` source
-                if ($sourceKey === '*') {
-                    unset($event->sources[$key]);
-                }
-            }
-        });
-
-        // User
-        // -------------------------------------------------------------------------
-
-        Event::on(User::class, User::EVENT_REGISTER_SOURCES, function(RegisterElementSourcesEvent $event) {
-            $isAdmin = Craft::$app->getUser()->getIsAdmin();
-
-            if (!$isAdmin) {
-                foreach($event->sources as $key => $source) {
-                    $sourceKey = $source['key'] ?? null;
-
-                    // Hide `Administrator` users from `All users` source
-                    if ($sourceKey === '*') {
-                        $event->sources[$key]['criteria'] = [
-                            'admin' => false,
-                        ];
-                    }
-
-                    // Remove `Administrators` source
-                    if ($sourceKey === 'admins') {
-                        unset($event->sources[$key]);
-                    }
-                }
-            }
-        });
+        // Register user sources
+        Event::on(User::class, User::EVENT_REGISTER_SOURCES, [$this->getUser(), 'registerSourcesHandler']);
     }
 
     /**
