@@ -39,6 +39,13 @@ return [
 
         'maxRevisions' => 5,
 
+        'autoLoginAfterAccountActivation' => true,
+        'userSessionDuration' => 604800, # 7 days
+        'verificationCodeDuration' => 604800, # 7 days
+
+        'defaultImageQuality' => 90,
+        'maxUploadFileSize' => 104857600, # 100 megabytes
+
     ],
 
     'dev' => [
@@ -46,6 +53,7 @@ return [
         'devMode' => true,
         'disallowRobots' => true,
         'enableGraphqlCaching' => false,
+        'enableTemplateCaching' => false,
 
         'testToEmailAddress' => [
             'example@lg2.com' => 'Craft - Dev',
