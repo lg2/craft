@@ -1,4 +1,4 @@
-dateModified: 1666788453
+dateModified: 1667910721
 elementSources:
   craft\elements\Entry:
     -
@@ -36,7 +36,7 @@ elementSources:
       key: 'group:3d7be5fe-cbca-4be6-a9b9-ff8e0b07b04f' # Gestionnaires
       type: native
 email:
-  fromEmail: craft+dev@lg2.com
+  fromEmail: example@lg2.com
   fromName: Craft
   replyToEmail: null
   template: _emails/craft.twig
@@ -145,7 +145,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: XXXXXXXXXXXXXXXXXXXXXXXX
-    schemaVersion: 2.0.4
+    schemaVersion: 2.0.6
   redactor:
     edition: standard
     enabled: true
