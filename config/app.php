@@ -18,10 +18,46 @@
  */
 
 use craft\helpers\App;
+use diginov\sentrylogger\log\SentryTarget;
 
 return [
 
     'id' => App::env('CRAFT_APP_ID') ?: 'CraftCMS',
+
+    'components' => [
+
+        'deprecator' => [
+            'throwExceptions' => App::env('CRAFT_ENVIRONMENT') === 'dev',
+        ],
+
+        'log' => [
+            'targets' => [
+                'sentry' => function() {
+                    if (!class_exists(SentryTarget::class)) {
+                        return null;
+                    }
+
+                    return Craft::createObject([
+                        'class' => SentryTarget::class,
+                        'enabled' => App::env('CRAFT_ENVIRONMENT') !== 'dev',
+                        'anonymous' => false,
+                        'dsn' => App::env('SENTRY_DSN'),
+                        'release' => App::env('SENTRY_RELEASE'),
+                        'environment' => App::env('SENTRY_ENVIRONMENT'),
+                        'levels' => ['error', 'warning'],
+                        'exceptCodes' => [403, 404],
+                        'exceptPatterns' => [
+                            'Invalid cookie auth key attempted for user',
+                            'Invalid session auth key attempted for user',
+                            'Request didn’t meet the user agent and IP requirement for maintaining a user session',
+                            'Tried to restore session from the the identity cookie',
+                        ],
+                    ]);
+                },
+            ],
+        ],
+
+    ],
 
     'modules' => [
         'site' => \modules\site\Site::class,
