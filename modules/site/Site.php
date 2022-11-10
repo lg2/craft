@@ -51,14 +51,12 @@ class Site extends \yii\base\Module
 
         $this->_setModuleComponents();
 
-        Event::on(Plugins::class, Plugins::EVENT_AFTER_LOAD_PLUGINS, function() {
-            $this->_registerUrlRules();
-            $this->_registerTemplateRoots();
-            $this->_registerElementBehaviors();
-            $this->_registerElementEvents();
-            $this->_registerElementSources();
-            $this->_registerAssetBundles();
-        });
+        $this->_registerUrlRules();
+        $this->_registerTemplateRoots();
+        $this->_registerElementBehaviors();
+        $this->_registerElementEvents();
+        $this->_registerElementSources();
+        $this->_registerAssetBundles();
     }
 
     // Private Methods
@@ -100,7 +98,7 @@ class Site extends \yii\base\Module
             UserBehavior::class,
         ]);
 
-        Event::on(User::class, User::EVENT_DEFINE_BEHAVIORS, function (DefineBehaviorsEvent $event) {
+        Event::on(User::class, User::EVENT_DEFINE_BEHAVIORS, function(DefineBehaviorsEvent $event) {
             $event->sender->attachBehaviors([
                 UserBehavior::class,
             ]);
