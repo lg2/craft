@@ -1,4 +1,4 @@
-dateModified: 1667910721
+dateModified: 1668087138
 elementSources:
   craft\elements\Entry:
     -
@@ -92,6 +92,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: '2.0'
+  colour-swatches:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.4.3
   cp-field-inspect:
     edition: standard
     enabled: true
