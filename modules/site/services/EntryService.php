@@ -27,9 +27,7 @@ class EntryService extends \craft\base\Component
         }
 
         // Update the slug based on entry title
-        if ($entry->getIsHomepage()) {
-            $entry->slug = 'home';
-        } else {
+        if ($entry->getSection()->type != 'single') {
             $entry->slug = ElementHelper::generateSlug((string) $entry->title);
         }
     }
