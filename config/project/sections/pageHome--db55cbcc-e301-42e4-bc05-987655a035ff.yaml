@@ -10,7 +10,7 @@ previewTargets:
         - Page
       -
         - urlFormat
-        - '{url}'
+        - '{{ getPreviewUrl(object) }}'
       -
         - refresh
         - '1'
