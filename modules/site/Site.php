@@ -5,6 +5,8 @@ namespace modules\site;
 use modules\site\base\ModuleTrait;
 use modules\site\behaviors\UserBehavior;
 use modules\site\bundles\site\SiteBundle;
+use modules\site\web\SiteVariable;
+use modules\site\web\TwigExtension;
 
 use Craft;
 use craft\elements\Category;
@@ -15,7 +17,7 @@ use craft\events\RegisterTemplateRootsEvent;
 use craft\events\RegisterUrlRulesEvent;
 use craft\events\TemplateEvent;
 use craft\i18n\Formatter;
-use craft\services\Plugins;
+use craft\web\twig\variables\CraftVariable;
 use craft\web\UrlManager;
 use craft\web\View;
 
@@ -57,6 +59,7 @@ class Site extends \yii\base\Module
         $this->_registerElementEvents();
         $this->_registerElementSources();
         $this->_registerAssetBundles();
+        $this->_registerTwigExtensions();
     }
 
     // Private Methods
@@ -140,6 +143,23 @@ class Site extends \yii\base\Module
 
         Event::on(View::class, View::EVENT_BEFORE_RENDER_TEMPLATE, function(TemplateEvent $event) {
             Craft::$app->getView()->registerAssetBundle(SiteBundle::class);
+        });
+    }
+
+    /**
+     * Register twig extensions.
+     */
+    private function _registerTwigExtensions(): void
+    {
+        Craft::$app->getView()->registerTwigExtension(new TwigExtension);
+
+        Event::on(CraftVariable::class, CraftVariable::EVENT_INIT, function(Event $event) {
+            /** @var CraftVariable $variable */
+            $variable = $event->sender;
+
+            $variable->attachBehaviors([
+                SiteVariable::class,
+            ]);
         });
     }
 }
