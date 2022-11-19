@@ -4,11 +4,13 @@ namespace modules\site\base;
 
 use modules\site\services\CategoryService;
 use modules\site\services\EntryService;
+use modules\site\services\GqlService;
 use modules\site\services\UserService;
 
 /**
  * @property-read CategoryService $category
  * @property-read EntryService $entry
+ * @property-read GqlService $gql
  * @property-read UserService $user
  */
 trait ModuleTrait
@@ -37,6 +39,16 @@ trait ModuleTrait
     }
 
     /**
+     * Returns the gql service.
+     *
+     * @return GqlService
+     */
+    public function getGql(): GqlService
+    {
+        return $this->get('gql');
+    }
+
+    /**
      * Returns the user service.
      *
      * @return UserService
@@ -57,6 +69,7 @@ trait ModuleTrait
         $this->setComponents([
             'category' => CategoryService::class,
             'entry' => EntryService::class,
+            'gql' => GqlService::class,
             'user' => UserService::class,
         ]);
     }

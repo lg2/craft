@@ -17,6 +17,7 @@ use craft\events\RegisterTemplateRootsEvent;
 use craft\events\RegisterUrlRulesEvent;
 use craft\events\TemplateEvent;
 use craft\i18n\Formatter;
+use craft\services\Gql;
 use craft\web\twig\variables\CraftVariable;
 use craft\web\UrlManager;
 use craft\web\View;
@@ -58,6 +59,7 @@ class Site extends \yii\base\Module
         $this->_registerElementBehaviors();
         $this->_registerElementEvents();
         $this->_registerElementSources();
+        $this->_registerGqlEvents();
         $this->_registerAssetBundles();
         $this->_registerTwigExtensions();
     }
@@ -130,6 +132,21 @@ class Site extends \yii\base\Module
     {
         // Register user sources
         Event::on(User::class, User::EVENT_REGISTER_SOURCES, [$this->getUser(), 'registerSourcesHandler']);
+    }
+
+    /**
+     * Register gql events.
+     */
+    private function _registerGqlEvents()
+    {
+        // Register schema components
+        Event::on(Gql::class, Gql::EVENT_REGISTER_GQL_SCHEMA_COMPONENTS, [$this->getGql(), 'registerGqlSchemaComponentsHandler']);
+
+        // Register types
+        Event::on(Gql::class, Gql::EVENT_REGISTER_GQL_TYPES, [$this->getGql(), 'registerGqlTypesHandler']);
+
+        // Register queries
+        Event::on(Gql::class, Gql::EVENT_REGISTER_GQL_QUERIES, [$this->getGql(), 'registerGqlQueriesHandler']);
     }
 
     /**
