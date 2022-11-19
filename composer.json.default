@@ -12,7 +12,7 @@
     "sebastianlenz/linkfield": "^2.1.4",
     "servd/craft-asset-storage": "^3.1.8",
     "spicyweb/craft-embedded-assets": "^3.1.0",
-    "verbb/formie": "^2.0.17",
+    "verbb/formie": "^2.0.18",
     "verbb/image-resizer": "^3.0.4",
     "verbb/navigation": "^2.0.11",
     "verbb/super-table": "^3.0.5",
