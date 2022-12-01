@@ -33,7 +33,6 @@
     "spicyweb/craft-embedded-assets": "^3.1.0",
     "verbb/formie": "^2.0.18",
     "verbb/image-resizer": "^3.0.4",
-    "verbb/navigation": "^2.0.13",
     "verbb/super-table": "^3.0.5",
     "vlucas/phpdotenv": "^5.5.0"
   },

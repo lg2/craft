@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "75eca80dac7ca0826e322ae0135e6246",
+    "content-hash": "788f92f5e2e808ccf9c63a2f302fd214",
     "packages": [
         {
             "name": "async-aws/core",
@@ -9777,65 +9777,6 @@
                 }
             ],
             "time": "2022-11-07T22:51:34+00:00"
-        },
-        {
-            "name": "verbb/navigation",
-            "version": "2.0.13",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/verbb/navigation.git",
-                "reference": "b3227227d2450181b2cae26e44df5c572934f242"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/verbb/navigation/zipball/b3227227d2450181b2cae26e44df5c572934f242",
-                "reference": "b3227227d2450181b2cae26e44df5c572934f242",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^4.0.0",
-                "php": "^8.0.2",
-                "verbb/base": "^2.0.0"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "name": "Navigation",
-                "handle": "navigation",
-                "changelogUrl": "https://raw.githubusercontent.com/verbb/navigation/craft-4/CHANGELOG.md",
-                "class": "verbb\\navigation\\Navigation"
-            },
-            "autoload": {
-                "psr-4": {
-                    "verbb\\navigation\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Verbb",
-                    "homepage": "https://verbb.io"
-                }
-            ],
-            "description": "A Craft CMS plugin to create navigation menus for your site.",
-            "keywords": [
-                "Craft",
-                "cms",
-                "craft-plugin",
-                "craftcms",
-                "menu",
-                "navigation"
-            ],
-            "support": {
-                "docs": "https://github.com/verbb/navigation",
-                "email": "support@verbb.io",
-                "issues": "https://github.com/verbb/navigation/issues?state=open",
-                "rss": "https://github.com/verbb/navigation/commits/v2.atom",
-                "source": "https://github.com/verbb/navigation"
-            },
-            "time": "2022-11-21T21:53:40+00:00"
         },
         {
             "name": "verbb/super-table",
