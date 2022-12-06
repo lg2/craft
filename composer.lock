@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "788f92f5e2e808ccf9c63a2f302fd214",
+    "content-hash": "638a3ea2bcb094cd07f7e9bf991bc739",
     "packages": [
         {
             "name": "async-aws/core",
@@ -182,16 +182,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.252.1",
+            "version": "3.252.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "5cc35b5f66d026d99ba843dba6fe1783571c20af"
+                "reference": "28daf91328380c7e61188738e36d1a0789a7b298"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5cc35b5f66d026d99ba843dba6fe1783571c20af",
-                "reference": "5cc35b5f66d026d99ba843dba6fe1783571c20af",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/28daf91328380c7e61188738e36d1a0789a7b298",
+                "reference": "28daf91328380c7e61188738e36d1a0789a7b298",
                 "shasum": ""
             },
             "require": {
@@ -270,9 +270,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.252.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.252.2"
             },
-            "time": "2022-12-02T19:21:15+00:00"
+            "time": "2022-12-05T19:23:12+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -4597,16 +4597,16 @@
         },
         {
             "name": "nystudio107/craft-retour",
-            "version": "4.1.6",
+            "version": "4.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nystudio107/craft-retour.git",
-                "reference": "80a4178ccf5748042e184756e63ed285c37543c2"
+                "reference": "ea51f4edd32fe229b1af086546d83a3ad4a3c743"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-retour/zipball/80a4178ccf5748042e184756e63ed285c37543c2",
-                "reference": "80a4178ccf5748042e184756e63ed285c37543c2",
+                "url": "https://api.github.com/repos/nystudio107/craft-retour/zipball/ea51f4edd32fe229b1af086546d83a3ad4a3c743",
+                "reference": "ea51f4edd32fe229b1af086546d83a3ad4a3c743",
                 "shasum": ""
             },
             "require": {
@@ -4660,7 +4660,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-11-28T21:18:51+00:00"
+            "time": "2022-12-06T03:28:19+00:00"
         },
         {
             "name": "nystudio107/craft-seomatic",
@@ -6817,16 +6817,16 @@
         },
         {
             "name": "servd/craft-asset-storage",
-            "version": "3.1.8",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/servdhost/craft-asset-storage.git",
-                "reference": "33fb663b4f7a1233f512330354d5742f2c201c6b"
+                "reference": "b6339c514190d3e3cbfda56f4cf206296d5ab9b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/servdhost/craft-asset-storage/zipball/33fb663b4f7a1233f512330354d5742f2c201c6b",
-                "reference": "33fb663b4f7a1233f512330354d5742f2c201c6b",
+                "url": "https://api.github.com/repos/servdhost/craft-asset-storage/zipball/b6339c514190d3e3cbfda56f4cf206296d5ab9b7",
+                "reference": "b6339c514190d3e3cbfda56f4cf206296d5ab9b7",
                 "shasum": ""
             },
             "require": {
@@ -6870,7 +6870,7 @@
                 "issues": "https://github.com/servdhost/craft-asset-storage/issues",
                 "source": "https://github.com/servdhost/craft-asset-storage"
             },
-            "time": "2022-11-08T11:39:34+00:00"
+            "time": "2022-12-05T21:17:52+00:00"
         },
         {
             "name": "spicyweb/craft-embedded-assets",
@@ -9639,21 +9639,21 @@
         },
         {
             "name": "verbb/formie",
-            "version": "2.0.18",
+            "version": "2.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/verbb/formie.git",
-                "reference": "6823917f3b7e51b09a6f655b191d90a62803b63c"
+                "reference": "a6a58673b072d96691e758db1f2d19a0025a48bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/formie/zipball/6823917f3b7e51b09a6f655b191d90a62803b63c",
-                "reference": "6823917f3b7e51b09a6f655b191d90a62803b63c",
+                "url": "https://api.github.com/repos/verbb/formie/zipball/a6a58673b072d96691e758db1f2d19a0025a48bd",
+                "reference": "a6a58673b072d96691e758db1f2d19a0025a48bd",
                 "shasum": ""
             },
             "require": {
                 "commerceguys/addressing": "^1.2",
-                "craftcms/cms": "^4.0.0",
+                "craftcms/cms": "^4.3.2",
                 "dompdf/dompdf": "^1.0.2 || ^2.0.0",
                 "ezyang/htmlpurifier": "^4.13",
                 "fakerphp/faker": "^1.9.1",
@@ -9709,7 +9709,7 @@
                 "rss": "https://github.com/verbb/formie/commits/v2.atom",
                 "source": "https://github.com/verbb/formie"
             },
-            "time": "2022-11-18T22:27:43+00:00"
+            "time": "2022-12-06T06:43:34+00:00"
         },
         {
             "name": "verbb/image-resizer",
@@ -9780,16 +9780,16 @@
         },
         {
             "name": "verbb/super-table",
-            "version": "3.0.5",
+            "version": "3.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/verbb/super-table.git",
-                "reference": "2569dfaff3f7be3d8857cf3ef508f0b74ec6ae0f"
+                "reference": "9337659d9f52d304ed6eb5043019e44373de35f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/super-table/zipball/2569dfaff3f7be3d8857cf3ef508f0b74ec6ae0f",
-                "reference": "2569dfaff3f7be3d8857cf3ef508f0b74ec6ae0f",
+                "url": "https://api.github.com/repos/verbb/super-table/zipball/9337659d9f52d304ed6eb5043019e44373de35f8",
+                "reference": "9337659d9f52d304ed6eb5043019e44373de35f8",
                 "shasum": ""
             },
             "require": {
@@ -9842,7 +9842,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-11-01T11:35:12+00:00"
+            "time": "2022-12-05T21:43:51+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
