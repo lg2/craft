@@ -18,6 +18,7 @@ use craft\events\RegisterUrlRulesEvent;
 use craft\events\TemplateEvent;
 use craft\i18n\Formatter;
 use craft\services\Gql;
+use craft\services\Plugins;
 use craft\web\twig\variables\CraftVariable;
 use craft\web\UrlManager;
 use craft\web\View;
@@ -57,11 +58,13 @@ class Site extends \yii\base\Module
         $this->_registerUrlRules();
         $this->_registerTemplateRoots();
         $this->_registerElementBehaviors();
-        $this->_registerElementEvents();
-        $this->_registerElementSources();
-        $this->_registerGqlEvents();
         $this->_registerAssetBundles();
         $this->_registerTwigExtensions();
+
+        Event::on(Plugins::class, Plugins::EVENT_AFTER_LOAD_PLUGINS, function() {
+            $this->_registerElementEvents();
+            $this->_registerGqlEvents();
+        });
     }
 
     // Private Methods
@@ -123,13 +126,7 @@ class Site extends \yii\base\Module
 
         // Before saving a user
         Event::on(User::class, User::EVENT_BEFORE_SAVE, [$this->getUser(), 'beforeSaveHandler']);
-    }
 
-    /**
-     * Register element sources.
-     */
-    private function _registerElementSources(): void
-    {
         // Register user sources
         Event::on(User::class, User::EVENT_REGISTER_SOURCES, [$this->getUser(), 'registerSourcesHandler']);
     }
