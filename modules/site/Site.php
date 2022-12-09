@@ -19,6 +19,7 @@ use craft\events\TemplateEvent;
 use craft\i18n\Formatter;
 use craft\services\Gql;
 use craft\services\Plugins;
+use craft\web\Application;
 use craft\web\twig\variables\CraftVariable;
 use craft\web\UrlManager;
 use craft\web\View;
@@ -55,11 +56,13 @@ class Site extends \yii\base\Module
 
         $this->_setModuleComponents();
 
-        $this->_registerUrlRules();
-        $this->_registerTemplateRoots();
-        $this->_registerElementBehaviors();
-        $this->_registerAssetBundles();
-        $this->_registerTwigExtensions();
+        Craft::$app->on(Application::EVENT_INIT, function() {
+            $this->_registerUrlRules();
+            $this->_registerTemplateRoots();
+            $this->_registerElementBehaviors();
+            $this->_registerAssetBundles();
+            $this->_registerTwigExtensions();
+        });
 
         Event::on(Plugins::class, Plugins::EVENT_AFTER_LOAD_PLUGINS, function() {
             $this->_registerElementEvents();
