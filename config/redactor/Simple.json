@@ -1,4 +1,15 @@
 {
-  "buttons": ["bold", "italic"],
-  "toolbarFixed": true
+  "buttons": [
+    "bold",
+    "italic"
+  ],
+  "toolbarFixed": true,
+  "pastePlainText": false,
+  "pasteInlineTags": ["br"],
+  "pasteBlockTags": ["p"],
+  "shortcodes": false,
+  "pasteImages": false,
+  "pasteLinks": false,
+  "autoparse": false,
+  "linkNewTab": true
 }

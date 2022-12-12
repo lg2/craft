@@ -1,16 +1,19 @@
 {
   "buttons": [
-    "html",
     "formatting",
     "bold",
     "italic",
-    "unorderedlist",
-    "orderedlist",
+    "lists",
     "link"
   ],
-  "plugins": [
-    "fullscreen"
-  ],
-  "linkNewTab": true,
-  "toolbarFixed": true
+  "formattingHide": ["blockquote", "h1", "pre"],
+  "toolbarFixed": true,
+  "pastePlainText": false,
+  "pasteInlineTags": ["br"],
+  "pasteBlockTags": ["p"],
+  "shortcodes": false,
+  "pasteImages": false,
+  "pasteLinks": false,
+  "autoparse": false,
+  "linkNewTab": true
 }
