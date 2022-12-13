@@ -7,16 +7,19 @@ use modules\site\behaviors\UserBehavior;
 use modules\site\bundles\site\SiteBundle;
 use modules\site\web\SiteVariable;
 use modules\site\web\TwigExtension;
+use modules\site\widgets\BuildWidget;
 
 use Craft;
 use craft\elements\Category;
 use craft\elements\Entry;
 use craft\elements\User;
 use craft\events\DefineBehaviorsEvent;
+use craft\events\RegisterComponentTypesEvent;
 use craft\events\RegisterTemplateRootsEvent;
 use craft\events\RegisterUrlRulesEvent;
 use craft\events\TemplateEvent;
 use craft\i18n\Formatter;
+use craft\services\Dashboard;
 use craft\services\Gql;
 use craft\services\Plugins;
 use craft\web\Application;
@@ -62,6 +65,7 @@ class Site extends \yii\base\Module
             $this->_registerElementBehaviors();
             $this->_registerAssetBundles();
             $this->_registerTwigExtensions();
+            $this->_registerWidgets();
         });
 
         Event::on(Plugins::class, Plugins::EVENT_AFTER_LOAD_PLUGINS, function() {
@@ -177,6 +181,16 @@ class Site extends \yii\base\Module
             $variable->attachBehaviors([
                 SiteVariable::class,
             ]);
+        });
+    }
+
+    /**
+     * Register widgets.
+     */
+    private function _registerWidgets(): void
+    {
+        Event::on(Dashboard::class, Dashboard::EVENT_REGISTER_WIDGET_TYPES, function(RegisterComponentTypesEvent $event) {
+            $event->types[] = BuildWidget::class;
         });
     }
 }

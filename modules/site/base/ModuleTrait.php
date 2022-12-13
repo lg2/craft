@@ -2,12 +2,14 @@
 
 namespace modules\site\base;
 
+use modules\site\services\BuildService;
 use modules\site\services\CategoryService;
 use modules\site\services\EntryService;
 use modules\site\services\GqlService;
 use modules\site\services\UserService;
 
 /**
+ * @property-read BuildService $build
  * @property-read CategoryService $category
  * @property-read EntryService $entry
  * @property-read GqlService $gql
@@ -17,6 +19,16 @@ trait ModuleTrait
 {
     // Public Methods
     // =========================================================================
+
+    /**
+     * Returns the build service.
+     *
+     * @return BuildService
+     */
+    public function getBuild(): BuildService
+    {
+        return $this->get('build');
+    }
 
     /**
      * Returns the category service.
@@ -67,6 +79,7 @@ trait ModuleTrait
     private function _setModuleComponents(): void
     {
         $this->setComponents([
+            'build' => BuildService::class,
             'category' => CategoryService::class,
             'entry' => EntryService::class,
             'gql' => GqlService::class,

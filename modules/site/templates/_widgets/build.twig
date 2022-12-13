@@ -1,0 +1,7 @@
+<form method="post">
+  {{ actionInput('site/build/run-webhook') }}
+  {{ csrfInput() }}
+  <p>{{ "This will launch the task which will publish the changes made to your website to all servers over the network." |t }}</p>
+  <p>{{ "Please allow about <strong>{minutes} minutes</strong> for the changes to be available network-wide." |t({ minutes: minutes }) |raw }}</p>
+  <button type="submit" class="btn submit">{{ "Publish" |t }}</button>
+</form>
