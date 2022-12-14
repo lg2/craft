@@ -18,6 +18,7 @@
     "vlucas/phpdotenv": "^5.5.0"
   },
   "require-dev": {
+    "craftcms/generator": "^1.0.0",
     "nystudio107/craft-autocomplete": "^1.10.1",
     "yiisoft/yii2-shell": "^2.0.5"
   },
