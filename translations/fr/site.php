@@ -2,7 +2,7 @@
 
 return [
 
-    'Please allow about <strong>{minutes} minutes</strong> for the changes to be available network-wide.' => 'Veuillez prévoir environ <strong>{minutes} minutes</strong> afin que les modifications soient disponibles sur l\'ensemble du réseau.',
+    'Please allow about <strong>{minutes} minute{plural}</strong> for the changes to be available network-wide.' => 'Veuillez prévoir environ <strong>{minutes} minute{plural}</strong> afin que les modifications soient disponibles sur l\'ensemble du réseau.',
     'Publish website launched.' => 'La publication du site web est lancée.',
     'Publish website' => 'Publier le site web',
     'Publish' => 'Publier',

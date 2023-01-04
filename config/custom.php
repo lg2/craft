@@ -9,6 +9,8 @@ return [
 
     '*' => [
 
+        'buildTime' => 120,
+
     ],
 
     'dev' => [

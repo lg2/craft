@@ -5,7 +5,7 @@ namespace modules\site\jobs;
 use modules\site\Site;
 use Craft;
 
-class BuildJob extends \craft\queue\BaseJob implements \craft\queue\JobInterface
+class BuildJob extends \craft\queue\BaseJob
 {
     // Public Methods
     // =========================================================================

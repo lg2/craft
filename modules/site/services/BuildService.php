@@ -19,11 +19,6 @@ class BuildService extends \craft\base\Component
         'BUILD_FR_URL',
     ];
 
-    /**
-     * @var int
-     */
-    private int $_time = 300;
-
     // Public Methods
     // =========================================================================
 
@@ -34,11 +29,12 @@ class BuildService extends \craft\base\Component
      */
     public function getBuildTime(): int
     {
-        return $this->_time;
+        $time = (int) Craft::$app->getConfig()->getCustom()->buildTime;
+        return max($time, 60);
     }
 
     /**
-     * Call build webhook.
+     * Run build webhook.
      *
      * @return bool
      */
