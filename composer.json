@@ -21,7 +21,7 @@
   "require": {
     "craftcms/aws-s3": "^2.0.1",
     "craftcms/cms": "^4.3.5",
-    "craftcms/redactor": "^3.0.2",
+    "craftcms/redactor": "^3.0.3",
     "diginov/craft-sentry-logger": "^4.1.1",
     "mmikkel/cp-field-inspect": "^1.4.4",
     "nystudio107/craft-retour": "^4.1.9",
@@ -29,16 +29,16 @@
     "percipioglobal/craft-colour-swatches": "^4.2.1",
     "putyourlightson/craft-amazon-ses": "^2.0.1",
     "sebastianlenz/linkfield": "^2.1.5",
-    "servd/craft-asset-storage": "^3.2.0",
+    "servd/craft-asset-storage": "^3.2.4",
     "spicyweb/craft-embedded-assets": "^3.1.0",
-    "verbb/formie": "^2.0.19",
+    "verbb/formie": "^2.0.20",
     "verbb/image-resizer": "^3.0.4",
     "verbb/super-table": "^3.0.7",
     "vlucas/phpdotenv": "^5.5.0"
   },
   "require-dev": {
-    "craftcms/generator": "^1.0.0",
-    "nystudio107/craft-autocomplete": "^1.10.1",
+    "craftcms/generator": "^1.0.4",
+    "nystudio107/craft-autocomplete": "^1.11.0",
     "yiisoft/yii2-shell": "^2.0.5"
   },
   "autoload": {
