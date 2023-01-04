@@ -17,8 +17,12 @@
  * your config/ folder, alongside this one.
  */
 
-use craft\helpers\App;
 use diginov\sentrylogger\log\SentryTarget;
+
+use craft\helpers\App;
+use craft\log\MonologTarget;
+
+use Psr\Log\LogLevel;
 
 return [
 
@@ -27,11 +31,12 @@ return [
     'components' => [
 
         'deprecator' => [
-            'throwExceptions' => App::env('CRAFT_ENVIRONMENT') === 'dev',
+            'throwExceptions' => App::devMode(),
         ],
 
         'log' => [
             'targets' => [
+
                 'sentry' => function() {
                     if (!class_exists(SentryTarget::class)) {
                         return null;
@@ -54,6 +59,16 @@ return [
                         ],
                     ]);
                 },
+
+                'site' => [
+                    'class' => MonologTarget::class,
+                    'name' => 'site',
+                    'extractExceptionTrace' => !App::devMode(),
+                    'allowLineBreaks' => App::devMode(),
+                    'level' => App::devMode() ? LogLevel::INFO : LogLevel::WARNING,
+                    'categories' => ['modules\site\*'],
+                ],
+
             ],
         ],
 
