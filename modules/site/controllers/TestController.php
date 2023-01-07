@@ -4,7 +4,7 @@ namespace modules\site\controllers;
 
 use yii\web\Response;
 
-class TestController extends \craft\web\Controller
+class TestController extends BaseController
 {
     // Public Methods
     // =========================================================================

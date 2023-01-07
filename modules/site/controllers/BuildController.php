@@ -7,7 +7,7 @@ use modules\site\jobs\BuildJob;
 use Craft;
 use craft\helpers\Queue;
 
-class BuildController extends \craft\web\Controller
+class BuildController extends BaseController
 {
     /**
      * Create a background job to run the build webhook.

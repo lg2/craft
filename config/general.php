@@ -40,6 +40,7 @@ return [
         'maxRevisions' => 5,
 
         'autoLoginAfterAccountActivation' => true,
+        'sameSiteCookieValue' => 'None',
         'userSessionDuration' => 604800, # 7 days
         'verificationCodeDuration' => 604800, # 7 days
 
