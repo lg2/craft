@@ -20,7 +20,7 @@
   },
   "require": {
     "craftcms/aws-s3": "^2.0.1",
-    "craftcms/cms": "^4.3.5",
+    "craftcms/cms": "^4.3.6",
     "craftcms/redactor": "^3.0.3",
     "diginov/craft-sentry-logger": "^4.1.1",
     "mmikkel/cp-field-inspect": "^1.4.4",
@@ -37,7 +37,7 @@
     "vlucas/phpdotenv": "^5.5.0"
   },
   "require-dev": {
-    "craftcms/generator": "^1.0.4",
+    "craftcms/generator": "^1.1.0",
     "nystudio107/craft-autocomplete": "^1.11.0",
     "yiisoft/yii2-shell": "^2.0.5"
   },
