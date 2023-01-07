@@ -2,9 +2,11 @@
 
 namespace modules\site\services;
 
+use modules\site\gql\mutations\ExampleMutation;
 use modules\site\gql\queries\ExampleQuery;
 use modules\site\gql\types\ExampleType;
 
+use craft\events\RegisterGqlMutationsEvent;
 use craft\events\RegisterGqlQueriesEvent;
 use craft\events\RegisterGqlSchemaComponentsEvent;
 use craft\events\RegisterGqlTypesEvent;
@@ -28,6 +30,14 @@ class GqlService extends \craft\base\Component
         ];
 
         $event->queries = array_merge($event->queries, $queries);
+
+        $mutations = [
+            'Custom Mutations' => [
+                'example:save' => ['label' => 'Save Example'],
+            ],
+        ];
+
+        $event->mutations = array_merge($event->mutations, $mutations);
     }
 
     /**
@@ -52,5 +62,19 @@ class GqlService extends \craft\base\Component
         ];
 
         $event->queries = array_merge($event->queries, ...$queries);
+    }
+
+    /**
+     * Register gql mutations handler.
+     *
+     * @param RegisterGqlMutationsEvent $event
+     */
+    public function registerGqlMutationsHandler(RegisterGqlMutationsEvent $event): void
+    {
+        $mutations = [
+            ExampleMutation::getMutations(),
+        ];
+
+        $event->mutations = array_merge($event->mutations, ...$mutations);
     }
 }

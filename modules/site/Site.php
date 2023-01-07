@@ -160,6 +160,9 @@ class Site extends \yii\base\Module
 
         // Register queries
         Event::on(Gql::class, Gql::EVENT_REGISTER_GQL_QUERIES, [$this->getGql(), 'registerGqlQueriesHandler']);
+
+        // Register mutations
+        Event::on(Gql::class, Gql::EVENT_REGISTER_GQL_MUTATIONS, [$this->getGql(), 'registerGqlMutationsHandler']);
     }
 
     /**

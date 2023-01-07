@@ -20,4 +20,16 @@ class GqlHelper extends \craft\helpers\Gql
         $allowedEntities = self::extractAllowedEntitiesFromSchema('read', $schema);
         return isset($allowedEntities['example']);
     }
+
+    /**
+     * Return true if active schema can mutate example.
+     *
+     * @param GqlSchema|null $schema
+     * @return bool
+     */
+    public static function canMutateExample(?GqlSchema $schema = null): bool
+    {
+        $allowedEntities = self::extractAllowedEntitiesFromSchema('save', $schema);
+        return isset($allowedEntities['example']);
+    }
 }
