@@ -1,4 +1,4 @@
-dateModified: 1670330624
+dateModified: 1673102788
 elementSources:
   craft\elements\Entry:
     -
@@ -68,6 +68,7 @@ fs:
       optimiseUrlPattern: ''
       projectSlug: ''
       securityKey: ''
+      subfolder: /local/files/
     type: servd\AssetStorage\AssetsPlatform\Fs
     url: null
 meta:
