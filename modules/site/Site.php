@@ -89,15 +89,6 @@ class Site extends \yii\base\Module
 
             $event->rules = array_merge($event->rules, $rules);
         });
-
-        Event::on(UrlManager::class, UrlManager::EVENT_REGISTER_SITE_URL_RULES, function(RegisterUrlRulesEvent $event) {
-            $rules = [
-                'form/csrf' => 'site/form/csrf',
-                'form/submit' => 'site/form/submit',
-            ];
-
-            $event->rules = array_merge($event->rules, $rules);
-        });
     }
 
     /**

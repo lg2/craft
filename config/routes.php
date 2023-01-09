@@ -22,4 +22,7 @@ return [
 
     'api' => 'graphql/api',
 
+    'form/csrf' => 'site/form/csrf',
+    'form/submit' => 'site/form/submit',
+
 ];
