@@ -2,6 +2,7 @@
 
 namespace modules\site\controllers;
 
+use modules\site\Site;
 use modules\site\jobs\BuildJob;
 
 use Craft;
@@ -14,9 +15,8 @@ class BuildController extends BaseController
      */
     public function actionRunWebhook(): void
     {
-        Queue::push(new BuildJob([
-            'description' => Craft::t('site', 'Publish website'),
-        ]));
+        Site::getInstance()->getCache()->clearCaches();
+        Queue::push(new BuildJob());
 
         $this->setSuccessFlash(Craft::t('site', 'Publish website launched.'));
     }

@@ -3,6 +3,7 @@
 namespace modules\site\base;
 
 use modules\site\services\BuildService;
+use modules\site\services\CacheService;
 use modules\site\services\CategoryService;
 use modules\site\services\EntryService;
 use modules\site\services\GqlService;
@@ -10,6 +11,7 @@ use modules\site\services\UserService;
 
 /**
  * @property-read BuildService $build
+ * @property-read CacheService $cache
  * @property-read CategoryService $category
  * @property-read EntryService $entry
  * @property-read GqlService $gql
@@ -28,6 +30,16 @@ trait ModuleTrait
     public function getBuild(): BuildService
     {
         return $this->get('build');
+    }
+
+    /**
+     * Returns the cache service.
+     *
+     * @return CacheService
+     */
+    public function getCache(): CacheService
+    {
+        return $this->get('cache');
     }
 
     /**
@@ -80,6 +92,7 @@ trait ModuleTrait
     {
         $this->setComponents([
             'build' => BuildService::class,
+            'cache' => CacheService::class,
             'category' => CategoryService::class,
             'entry' => EntryService::class,
             'gql' => GqlService::class,
