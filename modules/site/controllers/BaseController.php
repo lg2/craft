@@ -12,6 +12,8 @@ abstract class BaseController extends \craft\web\Controller
 
     /**
      * Provide CORS headers on the response.
+     *
+     * @see GraphqlController::actionApi()
      */
     protected function addCorsHeaders(): void
     {
