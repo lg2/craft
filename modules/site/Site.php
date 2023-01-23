@@ -22,6 +22,7 @@ use craft\i18n\Formatter;
 use craft\services\Dashboard;
 use craft\services\Gql;
 use craft\services\Plugins;
+use craft\services\Sections;
 use craft\web\Application;
 use craft\web\twig\variables\CraftVariable;
 use craft\web\UrlManager;
@@ -125,6 +126,9 @@ class Site extends \yii\base\Module
      */
     private function _registerElementEvents(): void
     {
+        // Before saving a section
+        Event::on(Sections::class, Sections::EVENT_BEFORE_SAVE_SECTION, [$this->getSection(), 'beforeSaveSectionHandler']);
+
         // Before saving a category
         Event::on(Category::class, Category::EVENT_BEFORE_SAVE, [$this->getCategory(), 'beforeSaveHandler']);
 

@@ -7,6 +7,7 @@ use modules\site\services\CacheService;
 use modules\site\services\CategoryService;
 use modules\site\services\EntryService;
 use modules\site\services\GqlService;
+use modules\site\services\SectionService;
 use modules\site\services\UserService;
 
 /**
@@ -15,6 +16,7 @@ use modules\site\services\UserService;
  * @property-read CategoryService $category
  * @property-read EntryService $entry
  * @property-read GqlService $gql
+ * @property-read SectionService $section
  * @property-read UserService $user
  */
 trait ModuleTrait
@@ -73,6 +75,16 @@ trait ModuleTrait
     }
 
     /**
+     * Returns the section service.
+     *
+     * @return SectionService
+     */
+    public function getSection(): SectionService
+    {
+        return $this->get('section');
+    }
+
+    /**
      * Returns the user service.
      *
      * @return UserService
@@ -96,6 +108,7 @@ trait ModuleTrait
             'category' => CategoryService::class,
             'entry' => EntryService::class,
             'gql' => GqlService::class,
+            'section' => SectionService::class,
             'user' => UserService::class,
         ]);
     }
