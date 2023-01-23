@@ -4,6 +4,7 @@ namespace modules\site\web;
 
 use modules\site\helpers\StringHelper;
 
+use Craft;
 use craft\base\Element;
 use craft\helpers\App;
 
@@ -25,11 +26,11 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
                 $url = null;
                 $site = $element->getSite();
 
-                if ($site->handle == 'en') {
+                if ($site->handle === 'en') {
                     $url = App::env('PREVIEW_EN_URL');
                 }
 
-                if ($site->handle == 'fr') {
+                if ($site->handle === 'fr') {
                     $url = App::env('PREVIEW_FR_URL');
                 }
 
@@ -41,6 +42,10 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
 
                 if (!$element->getIsHomepage()) {
                     $url .= $element->uri;
+                }
+
+                if (Craft::$app->getConfig()->getGeneral()->addTrailingSlashesToUrls) {
+                    $url = StringHelper::ensureRight($url, '/');
                 }
 
                 return $url.'?preview=true';
