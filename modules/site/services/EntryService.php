@@ -22,12 +22,8 @@ class EntryService extends \craft\base\Component
         /** @var Entry $entry */
         $entry = $event->sender;
 
-        if (ElementHelper::isDraftOrRevision($entry)) {
-            return;
-        }
-
         // Update the slug based on entry title
-        if ($entry->title && $entry->getSection()->type != 'single') {
+        if ($entry->title && $entry->getSection()->type !== 'single') {
             $entry->slug = ElementHelper::generateSlug((string) $entry->title);
         }
     }

@@ -22,10 +22,6 @@ class CategoryService extends \craft\base\Component
         /** @var Category $category */
         $category = $event->sender;
 
-        if (ElementHelper::isDraftOrRevision($category)) {
-            return;
-        }
-
         // Update the slug based on category title
         if ($category->title) {
             $category->slug = ElementHelper::generateSlug((string) $category->title);
