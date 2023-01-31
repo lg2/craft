@@ -9,7 +9,8 @@ return [
 
     '*' => [
 
-        'buildTime' => 120,
+        // Approximate build time for all sites
+        'buildTime' => 300,
 
     ],
 

@@ -16,7 +16,9 @@ class BuildController extends BaseController
     public function actionRunWebhook(): void
     {
         Site::getInstance()->getCache()->clearCaches();
-        Queue::push(new BuildJob());
+
+        $ttr = Site::getInstance()->getBuild()->getBuildTime() + 60;
+        Queue::push(new BuildJob(), null, null, $ttr);
 
         $this->setSuccessFlash(Craft::t('site', 'Publish website launched.'));
     }
