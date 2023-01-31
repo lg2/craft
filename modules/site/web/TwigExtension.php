@@ -35,6 +35,10 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
                 }
 
                 if (empty($url)) {
+                    $url = App::env('PREVIEW_URL');
+                }
+
+                if (empty($url)) {
                     $url = $site->getBaseUrl();
                 }
 
