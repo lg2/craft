@@ -26,6 +26,9 @@ return [
         'headlessMode' => true,
         'sendPoweredByHeader' => false,
 
+        'csrfTokenName' => 'site_csrf',
+        'phpSessionName' => 'site_session',
+
         'defaultCpLanguage' => 'fr',
         'defaultCpLocale' => 'fr-CA',
 
