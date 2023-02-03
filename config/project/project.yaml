@@ -1,4 +1,4 @@
-dateModified: 1674477309
+dateModified: 1675435450
 elementSources:
   craft\elements\Entry:
     -
@@ -101,6 +101,16 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  default-dashboard:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      excludeAdmin: true
+      logErrors: false
+      logInfo: false
+      override: true
+      userDashboard: 2
   embeddedassets:
     edition: standard
     enabled: true

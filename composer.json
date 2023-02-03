@@ -31,6 +31,7 @@
     "sebastianlenz/linkfield": "^2.1.5",
     "servd/craft-asset-storage": "^3.2.5",
     "spicyweb/craft-embedded-assets": "^3.1.1",
+    "verbb/default-dashboard": "^2.0.0",
     "verbb/formie": "^2.0.21",
     "verbb/image-resizer": "^3.0.4",
     "verbb/super-table": "^3.0.7",
