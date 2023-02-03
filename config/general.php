@@ -47,6 +47,18 @@ return [
         'defaultImageQuality' => 90,
         'maxUploadFileSize' => 104857600, # 100 megabytes
 
+        'allowedFileExtensions' => [
+            'avif',
+            'gif',
+            'jpeg',
+            'jpg',
+            'json',
+            'pdf',
+            'png',
+            'svg',
+            'webp',
+        ],
+
     ],
 
     'dev' => [
