@@ -169,6 +169,16 @@ class Site extends \yii\base\Module
             return;
         }
 
+        Craft::$app->getView()->hook('cp.layouts.base', function(array &$context) {
+            if (Craft::$app->getUser()->getIsAdmin()) {
+                $context['bodyAttributes']['class'][] = 'user-is-admin';
+            }
+
+            if (Craft::$app->getUser()->getIsManager()) {
+                $context['bodyAttributes']['class'][] = 'user-is-manager';
+            }
+        });
+
         Event::on(View::class, View::EVENT_BEFORE_RENDER_TEMPLATE, function(TemplateEvent $event) {
             Craft::$app->getView()->registerAssetBundle(SiteBundle::class);
         });
