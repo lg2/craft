@@ -23,6 +23,16 @@ class BuildService extends \craft\base\Component
     // =========================================================================
 
     /**
+     * Returns build badge image url.
+     *
+     * @return string|null
+     */
+    public function getBuildBadge(): ?string
+    {
+        return Craft::$app->getConfig()->getCustom()->buildBadge;
+    }
+
+    /**
      * Returns build time in seconds.
      *
      * @return int

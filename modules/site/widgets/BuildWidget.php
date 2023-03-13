@@ -29,6 +29,7 @@ class BuildWidget extends \craft\base\Widget
     public function getBodyHtml(): ?string
     {
         return Craft::$app->getView()->renderTemplate('site/_widgets/build.twig', [
+            'badge' => Site::getInstance()->getBuild()->getBuildBadge(),
             'minutes' => ceil(Site::getInstance()->getBuild()->getBuildTime() / 60),
         ]);
     }

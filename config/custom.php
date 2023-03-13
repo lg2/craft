@@ -9,6 +9,9 @@ return [
 
     '*' => [
 
+        // Build status badge image url
+        'buildBadge' => null,
+
         // Approximate build time for all sites
         'buildTime' => 300,
 
