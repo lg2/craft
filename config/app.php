@@ -31,7 +31,7 @@ return [
     'components' => [
 
         'deprecator' => [
-            'throwExceptions' => App::devMode(),
+            'throwExceptions' => App::env('CRAFT_ENVIRONMENT') === 'dev',
         ],
 
         'log' => [
