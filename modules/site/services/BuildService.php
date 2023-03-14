@@ -2,8 +2,16 @@
 
 namespace modules\site\services;
 
+use modules\site\Site;
+use modules\site\jobs\BuildJob;
+
 use Craft;
+use craft\elements\Entry;
 use craft\helpers\App;
+use craft\helpers\Queue;
+
+use DateInterval;
+use DateTime;
 
 class BuildService extends \craft\base\Component
 {
@@ -44,6 +52,17 @@ class BuildService extends \craft\base\Component
     }
 
     /**
+     * Add a background job to run the build webhook.
+     */
+    public function addQueueJob(): void
+    {
+        Site::getInstance()->getCache()->clearCaches();
+
+        $ttr = $this->getBuildTime();
+        Queue::push(new BuildJob(), null, null, $ttr);
+    }
+
+    /**
      * Run build webhook.
      *
      * @return bool
@@ -71,5 +90,57 @@ class BuildService extends \craft\base\Component
         }
 
         return true;
+    }
+
+    /**
+     * Propagate entries that should be published or unpublished.
+     *
+     * @param int $minutes
+     * @return bool
+     */
+    public function propagateEntries(int $minutes = 15): bool
+    {
+        $date = new DateTime();
+        $propagate = false;
+
+        // Already expired entries
+        $expireDate = clone $date;
+        $expireDate->sub(new DateInterval("PT{$minutes}M"));
+
+        $expireCount = Entry::find()
+            ->expiryDate(['and', ">= {$expireDate->format(DateTime::ATOM)}", "<= {$date->format(DateTime::ATOM)}"])
+            ->status(Entry::STATUS_EXPIRED)
+            ->count();
+
+        if ($expireCount > 0) {
+            $propagate = true;
+        }
+
+        // Not published entries
+        $publishDate = clone $date;
+        $publishDate->add(new DateInterval("PT{$minutes}M"));
+
+        $publishEntries = Entry::find()
+            ->postDate(['and', ">= {$date->format(DateTime::ATOM)}", "<= {$publishDate->format(DateTime::ATOM)}"])
+            ->status(Entry::STATUS_PENDING)
+            ->all();
+
+        if (count($publishEntries) > 0) {
+            $elementService = Craft::$app->getElements();
+
+            // Update the post date
+            foreach($publishEntries as $entry) {
+                $entry->postDate = $date;
+                $elementService->saveElement($entry, updateSearchIndex: true);
+            }
+
+            $propagate = true;
+        }
+
+        if ($propagate) {
+            $this->addQueueJob();
+        }
+
+        return $propagate;
     }
 }

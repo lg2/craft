@@ -3,10 +3,7 @@
 namespace modules\site\controllers;
 
 use modules\site\Site;
-use modules\site\jobs\BuildJob;
-
 use Craft;
-use craft\helpers\Queue;
 
 class BuildController extends BaseController
 {
@@ -15,11 +12,7 @@ class BuildController extends BaseController
      */
     public function actionRunWebhook(): void
     {
-        Site::getInstance()->getCache()->clearCaches();
-
-        $ttr = Site::getInstance()->getBuild()->getBuildTime() + 60;
-        Queue::push(new BuildJob(), null, null, $ttr);
-
+        Site::getInstance()->getBuild()->addQueueJob();
         $this->setSuccessFlash(Craft::t('site', 'Publish website launched.'));
     }
 }
