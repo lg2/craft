@@ -100,8 +100,10 @@ class BuildService extends \craft\base\Component
      */
     public function propagateEntries(int $minutes = 15): bool
     {
-        $date = new DateTime();
         $propagate = false;
+
+        $date = new DateTime();
+        $date->setTime((int) $date->format('H'), (int) $date->format('i'), 0, 0);
 
         // Already expired entries
         $expireDate = clone $date;
