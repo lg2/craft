@@ -39,6 +39,7 @@ return [
         'convertFilenamesToAscii' => true,
         'limitAutoSlugsToAscii' => true,
         'omitScriptNameInUrls' => true,
+        'preloadSingles' => true,
 
         'maxRevisions' => 5,
 
