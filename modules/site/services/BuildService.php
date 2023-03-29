@@ -58,7 +58,7 @@ class BuildService extends \craft\base\Component
     {
         Site::getInstance()->getCache()->clearCaches();
 
-        $ttr = $this->getBuildTime();
+        $ttr = $this->getBuildTime() + 60;
         Queue::push(new BuildJob(), null, null, $ttr);
     }
 
