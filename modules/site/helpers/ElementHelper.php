@@ -15,6 +15,6 @@ class ElementHelper extends \craft\helpers\ElementHelper
         $str = StringHelper::replaceAll($str, ["‘", "’", "′", "ˊ", "`", "‵", "ˋ", "ˈ", "ꞌ"], "'");
         $str = StringHelper::replaceAll($str, [" d'", " l'", " m'", " s'", " t'"], ' ', false);
 
-        return parent::generateSlug($str, $ascii, $language);
+        return parent::generateSlug($str, true, $language);
     }
 }

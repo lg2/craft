@@ -22,8 +22,13 @@ class CategoryService extends \craft\base\Component
         /** @var Category $category */
         $category = $event->sender;
 
+        // Clean the actual slug
+        if (!$event->isNew && !empty($category->slug)) {
+            $category->slug = ElementHelper::generateSlug((string) $category->slug);
+        }
+
         // Update the slug based on category title
-        if ($category->title) {
+        if (!empty($category->title)) {
             $category->slug = ElementHelper::generateSlug((string) $category->title);
         }
     }
