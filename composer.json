@@ -32,7 +32,7 @@
     "servd/craft-asset-storage": "^3.4.2",
     "spicyweb/craft-embedded-assets": "^3.1.5",
     "verbb/formie": "^2.0.28",
-    "verbb/image-resizer": "^3.0.5",
+    "verbb/image-resizer": "^3.0.6",
     "verbb/super-table": "^3.0.8.1",
     "vlucas/phpdotenv": "^5.5.0"
   },
