@@ -61,15 +61,15 @@ class Site extends \yii\base\Module
         $this->_setModuleComponents();
 
         Craft::$app->on(Application::EVENT_INIT, function() {
-            $this->_registerUrlRules();
             $this->_registerTemplateRoots();
-            $this->_registerElementBehaviors();
+            $this->_registerUserBehaviors();
             $this->_registerAssetBundles();
             $this->_registerTwigExtensions();
             $this->_registerWidgets();
         });
 
         Event::on(Plugins::class, Plugins::EVENT_AFTER_LOAD_PLUGINS, function() {
+            $this->_registerUrlRules();
             $this->_registerElementEvents();
             $this->_registerGqlEvents();
         });
@@ -105,9 +105,9 @@ class Site extends \yii\base\Module
     }
 
     /**
-     * Register element behaviors.
+     * Register user behaviors.
      */
-    private function _registerElementBehaviors(): void
+    private function _registerUserBehaviors(): void
     {
         // Attach user behaviors
         Craft::$app->getUser()->attachBehaviors([
